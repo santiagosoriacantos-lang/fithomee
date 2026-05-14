@@ -1,0 +1,524 @@
+<!DOCTYPE html><html class="dark" lang="es" style="scroll-behavior: smooth;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FITHOME | Archivo Kinético 2026</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#a8e8ff",
+                    "tertiary-fixed": "#cfe5ff",
+                    "on-secondary-container": "#9bbaee",
+                    "surface-container-lowest": "#0c0c1f",
+                    "primary-container": "#00d4ff",
+                    "on-primary-fixed-variant": "#004e5f",
+                    "surface-container-high": "#28283d",
+                    "surface": "#111125",
+                    "on-background": "#e2e0fc",
+                    "background": "#111125",
+                    "on-primary-container": "#00586b",
+                    "on-error": "#690005",
+                    "on-surface": "#e2e0fc",
+                    "error": "#ffb4ab",
+                    "secondary-container": "#294a77",
+                    "on-surface-variant": "#bbc9cf",
+                    "secondary": "#a9c8fc",
+                    "outline-variant": "#3c494e",
+                    "on-primary-fixed": "#001f27",
+                    "primary-fixed-dim": "#3cd7ff",
+                    "primary-fixed": "#b4ebff",
+                    "tertiary-container": "#91c8ff",
+                    "inverse-on-surface": "#2f2e43",
+                    "error-container": "#93000a",
+                    "surface-variant": "#333348",
+                    "surface-bright": "#37374d",
+                    "on-tertiary-fixed": "#001d33",
+                    "on-tertiary": "#003354",
+                    "surface-container": "#1e1e32",
+                    "inverse-primary": "#00677e",
+                    "tertiary-fixed-dim": "#98cbff",
+                    "on-secondary-fixed": "#001b3c",
+                    "secondary-fixed": "#d5e3ff",
+                    "tertiary": "#c8e1ff",
+                    "surface-dim": "#111125",
+                    "surface-container-low": "#1a1a2e",
+                    "outline": "#859398",
+                    "on-tertiary-fixed-variant": "#004a77",
+                    "surface-tint": "#3cd7ff",
+                    "on-secondary": "#09305c",
+                    "secondary-fixed-dim": "#a9c8fc",
+                    "on-primary": "#003642",
+                    "surface-container-highest": "#333348",
+                    "inverse-surface": "#e2e0fc",
+                    "on-tertiary-container": "#005486",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#274774"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "display": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(30, 30, 50, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .kinetic-border {
+            border: 1px solid rgba(60, 73, 78, 0.3);
+        }
+        .timer-display {
+            font-variant-numeric: tabular-nums;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        #overlay-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style data-stitch-cursor=""></style></head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-fixed overflow-y-auto" style="overflow: auto;">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#111125]/90 backdrop-blur-xl flex justify-between items-center px-8 h-20 border-b border-outline-variant/20">
+<a class="text-2xl font-bold tracking-tighter text-[#00D4FF] font-headline hover:opacity-80 transition-opacity" href="#hero">FITHOME</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#bbc9cf] hover:text-[#00D4FF] transition-colors duration-300 font-headline text-sm uppercase tracking-widest" href="#fundamento">Por qué entrenar</a>
+<a class="text-[#bbc9cf] hover:text-[#00D4FF] transition-colors duration-300 font-headline text-sm uppercase tracking-widest" href="#fase-01">Calentamiento</a>
+<a class="text-[#bbc9cf] hover:text-[#00D4FF] transition-colors duration-300 font-headline text-sm uppercase tracking-widest" href="#fase-02">Estiramientos</a>
+<a class="text-[#bbc9cf] hover:text-[#00D4FF] transition-colors duration-300 font-headline text-sm uppercase tracking-widest" href="#fase-03">Ejercicios</a>
+<a class="text-[#bbc9cf] hover:text-[#00D4FF] transition-colors duration-300 font-headline text-sm uppercase tracking-widest" href="#centro-de-control">Temporizador</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-[100] bg-background/95 backdrop-blur-md items-center justify-center p-4 flex hidden" id="exercise-overlay">
+<div class="glass-panel w-full max-w-5xl rounded-3xl overflow-hidden kinetic-border flex flex-col md:flex-row relative">
+<button class="absolute top-6 right-6 z-50 text-on-surface hover:text-primary transition-colors bg-surface/50 p-2 rounded-full backdrop-blur-md" onclick="closeOverlay()">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<!-- Video Section -->
+<div class="w-full md:w-1/2 aspect-video md:aspect-auto bg-black relative flex items-center justify-center">
+<video class="w-full h-full object-cover" id="overlay-video" loop="" playsinline="">
+<source id="video-source" src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+</video>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 group cursor-pointer opacity-0" id="video-overlay-play" onclick="togglePlayPause()">
+<div class="w-20 h-20 rounded-full bg-primary/20 backdrop-blur-sm border border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl" id="play-pause-icon">pause</span>
+</div>
+</div>
+</div>
+<!-- Content Section -->
+<div class="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto max-h-[60vh] md:max-h-[700px] hide-scroll">
+<span class="font-label text-primary font-bold tracking-[0.4em] uppercase mb-4 block text-xs" id="overlay-category">Calentamiento</span>
+<h2 class="text-4xl font-headline font-bold mb-8 tracking-tighter" id="overlay-title">Movilidad de Cuello</h2>
+<div class="space-y-8">
+<div>
+<h4 class="text-primary font-label uppercase tracking-widest text-sm mb-3">Instrucciones</h4>
+<p class="text-on-surface-variant leading-relaxed italic" id="overlay-instructions">Siéntate derecho y lleva suavemente la oreja hacia el hombro. Mantén 2 segundos y cambia.</p>
+</div>
+<div>
+<h4 class="text-primary font-label uppercase tracking-widest text-sm mb-3">Métrica de Rendimiento</h4>
+<p class="text-on-surface font-headline text-xl" id="overlay-metrics">3 series x 10 reps</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="hero">
+<div class="absolute inset-0 z-0">
+<img alt="Atleta cinemático" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uixBqJ3NGX-oMAwDtu0qE-ZcPX_f_3w9r5oDmpVowY6w8iBa6MFPo4by4u58pqp47jLfl0gxQCPiIJVHs8rudl1sTBM0OI8AILC8yhztClz4xgofvY65fwTc2pMetPP4sB-lxN5D6XzbyffjxUQCYdXT16Xxzr1qCSVxxntce0-UYXmcqJ_aodkoq39Fv2E6f-mrHPq9V7iyidgmIzInh66jS3imYo1kbJ9u9MuN8wnblgK_8GjoTKuXtc">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
+</div>
+<div class="container mx-auto px-8 relative z-10">
+<div class="max-w-4xl">
+<h1 class="text-[clamp(4rem,12vw,10rem)] font-headline font-bold tracking-tighter text-white leading-none mb-6">
+                FITHOME<span class="text-primary">.</span>
+</h1>
+<p class="text-on-surface-variant text-xl md:text-2xl font-light tracking-wide max-w-2xl mb-12 leading-relaxed">
+                Eleva tu base física con un protocolo de entrenamiento de alto rendimiento diseñado para los espacios arquitectónicos del hogar. <span class="text-primary font-medium">Ciclo 2026.</span>
+</p>
+<div class="flex flex-col sm:flex-row gap-6">
+<a class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-10 py-5 rounded-xl font-label font-bold tracking-widest hover:shadow-[0_0_40px_rgba(0,212,255,0.4)] transition-all text-center uppercase text-sm" href="#fundamento">
+                    COMENZAR ENTRENAMIENTO
+                </a>
+</div>
+</div>
+</div>
+</header>
+<!-- Motto Section -->
+<section class="py-24 bg-surface-container-highest relative overflow-hidden border-y border-outline-variant/20">
+<div class="container mx-auto px-8 relative z-10 text-center">
+<span class="material-symbols-outlined text-primary text-6xl mb-8 opacity-80">format_quote</span>
+<h3 class="text-3xl md:text-5xl font-headline font-light leading-tight tracking-tight text-on-surface max-w-5xl mx-auto italic">
+            "El hogar no es una limitación para tu potencial físico, es el lienzo donde esculpes tu mejor versión."
+        </h3>
+</div>
+</section>
+<!-- Why Train Section -->
+<section class="py-32 bg-surface-container-lowest" id="fundamento">
+<div class="container mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div>
+<span class="font-label text-primary font-bold tracking-[0.4em] uppercase mb-6 block">Fundamento</span>
+<h2 class="text-5xl md:text-7xl font-headline font-bold text-on-surface mb-8 leading-none tracking-tighter">
+                    ¿Por qué entrenar?
+                </h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-10">
+                    El ejercicio no es solo una opción, es una necesidad fisiológica. En FITHOME, transformamos la rutina diaria en una arquitectura de movimiento funcional.
+                </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+<div>
+<h4 class="font-headline text-xl text-on-surface">Metabolismo</h4>
+<p class="text-sm text-on-surface-variant">Activación celular inmediata.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">psychology</span>
+<div>
+<h4 class="font-headline text-xl text-on-surface">Claridad Mental</h4>
+<p class="text-sm text-on-surface-variant">Enfoque cognitivo superior.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">shield</span>
+<div>
+<h4 class="font-headline text-xl text-on-surface">Inmunidad</h4>
+<p class="text-sm text-on-surface-variant">Fortaleza sistémica.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">architecture</span>
+<div>
+<h4 class="font-headline text-xl text-on-surface">Postura</h4>
+<p class="text-sm text-on-surface-variant">Arquitectura corporal.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative grid grid-cols-2 gap-4">
+<div class="space-y-4">
+<div class="h-64 rounded-2xl overflow-hidden kinetic-border">
+<img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOanmXjFItPZlYcdjY0GJOO4zyjdWikAh4Iv5-eVRWBwbAJLW6jWT37DqBDchDyV0a10jhsEizWw4CHuLuSrY5XkBuJeLBmBvvdMUNlRtTWi3XN3HqRqu_Yjzc12EzKU18yoYkBVN74flqTxsUuDkoxLHIGQeem8bovtl6wjvZPy6Z-woGE6HR7KDXBdXaKcQJHR2fL9GnYog0_bNYKWYYAtX0WDdTlr1plfy8eBDDQF9nWLHbKg2hmCoIa21tZR3iOlYbEueDg-Jd">
+</div>
+<div class="bg-primary p-8 rounded-2xl flex flex-col justify-end h-40">
+<span class="text-on-primary font-headline text-4xl font-bold tracking-tighter">45 MIN</span>
+<span class="text-on-primary/70 font-label uppercase text-[10px] tracking-widest font-bold">Sesión Diaria</span>
+</div>
+</div>
+<div class="h-full rounded-2xl overflow-hidden kinetic-border">
+<img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuG3sI0zkYjy60ZvGDEoMvq8c8dWUQszy1njWIXzqoSl70uwYs64VWugKlW9UQ6Wsz0yD_3EfkFOn8tOPmZ7LGAWl-GR8chdIBS8ZMLYXgJ8ixsA-s0X4SgPXRzScyHIy-l14cz_Y66iaEQRAwX8uucCEx184Br91NOFaXt8fNw1FVi2dK4Umtt_5xFCyhMonHd6MtOX0pDrZJlbNQnT8M-EL18nmZeO38p6sckidaDta5TRG8lVAKKB4ecV-dM4Shp-t3a5IoTLS3">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Warmup Section -->
+<section class="py-32 bg-surface" id="fase-01">
+<div class="container mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<span class="font-label text-primary font-bold tracking-[0.4em] uppercase mb-4 block">Fase 01</span>
+<h2 class="text-5xl font-headline font-bold tracking-tighter uppercase mb-2">Protocolo de Calentamiento</h2>
+<div class="inline-flex items-center gap-3 bg-surface-container-high px-4 py-2 rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm">signal_cellular_alt_1_bar</span>
+<span class="text-primary font-label text-xs uppercase tracking-widest font-bold">Nivel: Principiante | Todas las edades</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<!-- Warmup Items -->
+<div class="group cursor-pointer relative aspect-[3/4] rounded-xl overflow-hidden kinetic-border" onclick="openExerciseModal('Movilidad de Cuello', 'Calentamiento', '3 series x 10 reps', 'Siéntate derecho y lleva suavemente la oreja hacia el hombro. Mantén 2 segundos y cambia.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm13I7AO0qGfwweMqDyP4MRaB_bsY9tLAreG2nADV1azHdm9ijaf_9zDK8sKzvdieZ6YDDC7SnHsjOqPXxFXCBY-NYE3jNtk8psGHDj-hFOl1LodmiMbLBtIg3qfWByp0KjK86Mi7wtInWpQalNVXUQCYdXT16Xxzr1qCSVxxntce0-UYXmcqJ_aodkoq39Fv2E6f--Nq4ejyfx1HC4eTcmf-FTCL8o2nGs6-wlfhgRQmORb0bKNASCkDFAi78d96PrB8Cms67gbYb">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4"><h3 class="text-lg font-headline font-bold">Cuello</h3><p class="text-[10px] text-primary uppercase tracking-widest">Movilidad</p></div>
+</div>
+<div class="group cursor-pointer relative aspect-[3/4] rounded-xl overflow-hidden kinetic-border" onclick="openExerciseModal('Círculos de Hombros', 'Calentamiento', '3 series x 15 reps', 'Realiza círculos amplios con los hombros hacia adelante y luego hacia atrás.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4')">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZwUb8-4gAYt_Uq5cZbjklz3F_isyniSyOltRYvavQIWuj3CzVes89XAjeEe3izxh7GKBMigkpb4RmozJJnWGNw92MY5069h9fYy5GKPi4rbn-TXG1dS8sKy5IOwQpc1c7rzXzI9VJrpaD4CcNfmk1WJmOk2OvQhRyCAKPTOl18iRch4LzDAgtVHKhEWKyBzYIyGC3WuOxf4WcdyiuwdkEBFsdt1ohTLsMh4exsDnkHsEwx3NC_rJZHjGBHXvhj4WhYG7SvLlSU5jU">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4"><h3 class="text-lg font-headline font-bold">Hombros</h3><p class="text-[10px] text-primary uppercase tracking-widest">Movilidad</p></div>
+</div>
+<div class="group cursor-pointer relative aspect-[3/4] rounded-xl overflow-hidden kinetic-border" onclick="openExerciseModal('Círculos de Cadera', 'Calentamiento', '3 series x 12 reps', 'Con manos en cadera, realiza círculos amplios en ambos sentidos.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4')">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9nXgauy-r6D9y9NMlPD079MOj-P0vOku2TmS0D2Px0-lsR8SjFSqSJ6DYAcBJrNGN76hEhcij5vtyJK5G819CvV7Fm_9ujWURmscDHmyi5xRHbp-D-hklIlLxxyjGq418LepX0gq9kQJavZz2dyH6iuHjdYDS7txkuiuqQZI3wDCF-ZGoxHF77RJ-b5JQqcapgANJGzysaCyt4haV73amaCm-ac0KXdJHMeC11gmiA5rpnJhu9cTax61q333o1g_OF5jyA6XbiWmb">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4"><h3 class="text-lg font-headline font-bold">Cadera</h3><p class="text-[10px] text-primary uppercase tracking-widest">Movilidad</p></div>
+</div>
+<div class="group cursor-pointer relative aspect-[3/4] rounded-xl overflow-hidden kinetic-border" onclick="openExerciseModal('Rotación de Rodillas', 'Calentamiento', '3 series x 15 reps', 'Junta piernas, manos en rodillas y realiza círculos suaves.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4')">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmsGplD0Qo7AAoS6XIp43IyTBcJXtv9_DlHkpB64ds252fsVdMpcpb84q9oVsAXDT8iLo04GmY37XHn_fuV_SldDK4pukhtJjuVOHn50ftPAOKJwwbJJTsYHzKDCZnKBYmkOw0L7CTHk45TquhbcIEHYNRqBW3mnFYQ1IK0EC6ycR0fs0IhKBtNPPqJapCXbJg8bJZtiSSRxhwvOxWHYUfSk7hpaIreTvnuml4AEQbQawIdIwRPEAjkzbLdAEx5_j2l7bz5AtJBqZr">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4"><h3 class="text-lg font-headline font-bold">Rodillas</h3><p class="text-[10px] text-primary uppercase tracking-widest">Movilidad</p></div>
+</div>
+<div class="group cursor-pointer relative aspect-[3/4] rounded-xl overflow-hidden kinetic-border" onclick="openExerciseModal('Círculos de Tobillo', 'Calentamiento', '3 series x 10 reps', 'Dibuja círculos con la punta del pie en el aire.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4')">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnm6xbherbaJfUbCAb1iC8vg7_dCOmCVUEbVwYMeTXIba62FtsU3z6P30qZ0QaEWCL0pdCwatOXbx6dFW3qq5ijI7ILcMr1ysVYm0c-6_xf0Zy3M2c0R4r3ZICWvVfyIE4WbduePYF3_1FMZNQKBUx4gGOTGmj67F3HokRZ-LMKsWvAjYLBIsBPvMAMH3gg_S1xyRe74193RBLp0P2da0tjmHxt9LycWE5bfKH16smhirOkqqTlgL869kyQTEJXPOkzY1fluXuLQBl">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4"><h3 class="text-lg font-headline font-bold">Tobillo</h3><p class="text-[10px] text-primary uppercase tracking-widest">Movilidad</p></div>
+</div>
+<div class="group cursor-pointer relative aspect-[3/4] rounded-xl overflow-hidden kinetic-border" onclick="openExerciseModal('Zancadas Dinámicas', 'Calentamiento', '3 series x 10 reps', 'Paso largo atrás bajando la cadera con control.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4')">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCShf-NqvM1V_BvrNJQyhrSKkU3ferUalI53KZMgcXS07UgIpeJPBYKX0oXdYY2BqevaV0oTpAVUkIzAm91rWynLATmD-JSeYdKRY4s1kawNFMfdHVSee7mJehVAY62mSCG981q0Uhau9FiunxhlGKEl0qqTAT6kRe6H1Y6L1qfH1RX_QHoFo5RLMkH8urkFAh4yDcDBJw1BL6GLPKYIX_hd7MuWFNN_Sw4-KJTjvbntVZvXWdKtoYFG9uCpiqK-_jpYwZyjwoLqIy8">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4"><h3 class="text-lg font-headline font-bold">Zancadas</h3><p class="text-[10px] text-primary uppercase tracking-widest">Activación</p></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stretching Section -->
+<section class="py-32 bg-surface-container-low" id="fase-02">
+<div class="container mx-auto px-8">
+<div class="mb-16">
+<span class="font-label text-primary font-bold tracking-[0.4em] uppercase mb-4 block">Fase 02</span>
+<h2 class="text-5xl font-headline font-bold tracking-tighter uppercase mb-4">Posturas de Estiramiento</h2>
+<div class="inline-flex items-center gap-3 bg-surface-container-highest px-4 py-2 rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm">signal_cellular_alt_2_bar</span>
+<span class="text-primary font-label text-xs uppercase tracking-widest font-bold">Nivel: Intermedio | Recomendado: 18-65 años</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="glass-panel p-6 rounded-2xl kinetic-border cursor-pointer group hover:bg-surface-container-high transition-all" onclick="openExerciseModal('Balasana', 'Estiramiento', '60 segundos', 'Arrodillado, siéntate en talones y estira brazos al frente.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4')">
+<div class="aspect-video rounded-xl overflow-hidden mb-6"><img class="w-full h-full object-cover group-hover:scale-105 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmpa4O6FzqYISrEMPjk7XD8scFEC2H98Bu87GkqfbocYJ2pE2PGDRF90ScRlJVz82a547PW9oy5UpalRkEn2d68Ge_VwmzRsCF7yKNtqEjDdx8Y0dz33PwhddbrQ2nyXfdhxECAvzGeFyxbQKvRp5khkxCID0VYka6eiXqI3Ha37tTOIuv43JWRNVRrowhoC2oBV5Q2uP7RtmVH72jAmGbPOJtaAjGbK0KhoC_PWsaRjfoLLwa6EhVvY65UsXqrmDZNV34UZV-Ebys"></div>
+<h3 class="text-xl font-headline font-bold text-primary mb-2">Balasana</h3>
+<p class="text-on-surface-variant text-sm">Libera tensión en espalda baja y hombros.</p>
+</div>
+<div class="glass-panel p-6 rounded-2xl kinetic-border cursor-pointer group hover:bg-surface-container-high transition-all" onclick="openExerciseModal('Estiramiento Cuádriceps', 'Estiramiento', '45 seg por lado', 'De pie, flexiona rodilla y sujeta tobillo atrás.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4')">
+<div class="aspect-video rounded-xl overflow-hidden mb-6"><img class="w-full h-full object-cover group-hover:scale-105 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClfaKs7135K7QuCswp5nHgmslBSnv5AaNsVzv1yuJoGQONqkgt0YSu4BR1da5CFOMdm1bnMDdeh7N6QYEl2A9GnX8UQCYdXT16Xxzr1qCSVxxntce0-UYXmcqJ_aodkoq39Fv2E6f-SK0k_Q5OTns1cr-B31brkI-5KoecNTaOd7PhsjvhJ-dfiIYrwxoZ6L73EqFmTdx9Vy7o8Aksx-Vp7fQOSbr93HhMzVOQ-aWKKIyBK_ZuuEi8WIMQbT9ffsCuiFAZ6OzJDjcG"></div>
+<h3 class="text-xl font-headline font-bold text-primary mb-2">Cuádriceps</h3>
+<p class="text-on-surface-variant text-sm">Alarga la cadena anterior.</p>
+</div>
+<div class="glass-panel p-6 rounded-2xl kinetic-border cursor-pointer group hover:bg-surface-container-high transition-all" onclick="openExerciseModal('Foco Isquiotibiales', 'Estiramiento', '45 seg por lado', 'Sentado, inclínate hacia el pie estirado.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4')">
+<div class="aspect-video rounded-xl overflow-hidden mb-6"><img class="w-full h-full object-cover group-hover:scale-105 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbdqZXt3wk3Phyk5hug12eRth8UnGEPwV1bzRKLsHBB0SUvu-WWr8hlqvA5GVhH9kCnNxYjbMY54lieXTPtEWt-vdCHdXGUOEdyuJH64dFFa-JmEsDXKT_1NcLzjS3BgOL6g6j9mPqLE29GPlEdRSpqZN6_EyY3OIM_wpUEKB9pii2DCkXXRR_9MkZva78-29BTBG33dmZkjBQoLCxSn_DIZsC0LH6L3eo-OJK-syoXIUKYMqjjeYXmiB1SDdH3-x0WH0BkJIkwl6L"></div>
+<h3 class="text-xl font-headline font-bold text-primary mb-2">Isquiotibiales</h3>
+<p class="text-on-surface-variant text-sm">Movilidad de cadena posterior.</p>
+</div>
+<div class="glass-panel p-6 rounded-2xl kinetic-border cursor-pointer group hover:bg-surface-container-high transition-all" onclick="openExerciseModal('Postura de Cobra', 'Estiramiento', '30 segundos', 'Boca abajo, empuja con brazos para arquear espalda suavemente.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4')">
+<div class="aspect-video rounded-xl overflow-hidden mb-6"><img class="w-full h-full object-cover group-hover:scale-105 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT-UelGEBgbebsv6Oov0uf_cHzCd3Rkoe6vxoNLr92_RlFz61Ht6TLmpMc3xhN5euPZo5ecC4RJtfJrJu8-wS_Slj6uJzejkbHU3DPOedJ71oQzymGoXu8HcEvO7YJ2Zufd6fXOpEq92_QcqjanNIksZs424_YYqHU4udT9MgGbYXrM0nz1H1nC-cp0dm2shUzBhDOzPJsvTMmIZ3sKxebL1uefB_ZTlSyua4fwDdF3oasAosGJoIEvhNJgN050kjpQFR0kbz5ZYl8UJ3xLcVAo"></div>
+<h3 class="text-xl font-headline font-bold text-primary mb-2">Cobra</h3>
+<p class="text-on-surface-variant text-sm">Extensión de columna y abdomen.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Exercises Section -->
+<section class="py-32 bg-surface" id="fase-03">
+<div class="container mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<span class="font-label text-primary font-bold tracking-[0.4em] uppercase mb-4 block">Fase 03</span>
+<h2 class="text-5xl font-headline font-bold tracking-tighter uppercase mb-4">Rendimiento Élite</h2>
+<div class="inline-flex items-center gap-3 bg-surface-container-high px-4 py-2 rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm">signal_cellular_alt_3_bar</span>
+<span class="text-primary font-label text-xs uppercase tracking-widest font-bold">Nivel: Avanzado | Recomendado: 18-50 años</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Row 1 -->
+<div class="group relative aspect-video rounded-2xl overflow-hidden kinetic-border cursor-pointer" onclick="openExerciseModal('Sentadillas con Silla', 'Fuerza', '4 series x 15 reps', 'Usa una silla como referencia de profundidad. Espalda recta.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4')">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnW_-opmF7fYQc5AJ7A9xUmY9RnDkiWtXPU4WQ8TVptKGT0UNdqJJuBYVXglpcAyxaQ09og6FLOZyyDYFJTdwqdi1SGGiwPGn3DiosNN3SSK0IpUXaALGovuePjBTZKKsKWy-7KhxPB_VvLcGvwSO9z3zXMjD_Z1iTYb4_38A94Lh472OuTQL21WRKhNVvFC_wNK8WBktsDMlUQCYdXT16Xxzr1qCSVxxntce0-UYXmcqJ_aodkoq39Fv2E6f_Lw2UMXLopzOJIVOY">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-6 left-6"><h3 class="text-2xl font-headline font-bold mb-1">Sentadillas Silla</h3><p class="text-primary font-label text-xs uppercase tracking-widest">Pilar de Fuerza</p></div>
+</div>
+<div class="group relative aspect-video rounded-2xl overflow-hidden kinetic-border cursor-pointer" onclick="openExerciseModal('Fondos en Silla', 'Fuerza', '3 series x 12 reps', 'Apoya manos en borde de silla, baja con codos hacia atrás.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4')">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB2h7trf2ZB0G9VZ1fMfN145o0SyBFCq6jKXJPdMZ_91xA9ju2lPDP3WlBGVOeVIROTiiitcD_yvhN0U4kbiMJ0UmPhxReJeaCVE223BDdkDgE1y-0x_ppcoT6RimmChP4tPkBwteowxdOE4UCS8UvVLc9c0dlIXFwq12eDMZRhQYCupaoJaxotaJXgGrjV4NXVVu1kRYUb9GiKTOmYsRwI3-cN_fl5RPq7yyGygQQBVbfB_lpZtP2EVhoccRRCTW3pGWj2esxXesS">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-6 left-6"><h3 class="text-2xl font-headline font-bold mb-1">Fondos en Silla</h3><p class="text-primary font-label text-xs uppercase tracking-widest">Tríceps Potencia</p></div>
+</div>
+<div class="group relative aspect-video rounded-2xl overflow-hidden kinetic-border cursor-pointer" onclick="openExerciseModal('Curls de Bíceps (Mochila)', 'Fuerza', '4 series x 12 reps', 'Usa una mochila con peso moderado. Mantén codos pegados.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4')">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2t8G6UsRxuQDPK-1zum6582GWDbcYLn2x_nYO1kzmicvGPxJLPGjburSdMBcbZLCSeeCYMJXEulhXzfNkdl7w9BfY4j3bXlf3ZG5JM0BiqUwkGqZUOdEI1HJUWT-pZ2Dka9nHUcSH8VSYTDaLbgr1hajNmonbtofkXf0mbFc1hChbBgYJ3fwycQg1aDsj4FPZmIP09yXbeQLtPzgqiLjtmUsOTCZqspmmvbnPEM9JhkM71LBjyv3N2ShoBAXeYirS1Alx9EkUIKZ8">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-6 left-6"><h3 class="text-2xl font-headline font-bold mb-1">Curls con Peso</h3><p class="text-primary font-label text-xs uppercase tracking-widest">Brazo Funcional</p></div>
+</div>
+<!-- Row 2 -->
+<div class="group relative aspect-video rounded-2xl overflow-hidden kinetic-border cursor-pointer" onclick="openExerciseModal('Plancha Abdominal', 'Resistencia', '3 series x 60 seg', 'Cuerpo recto sobre antebrazos. Glúteos contraídos.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4')">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYQUV6daG54JT72ls69EFQLL58lrve0hY4p1CZJiDq6GcvwQBlnSMcRAONfvGFxDE7pXaa-x0qwUzdyD98gNMG4Bwg0yqRjzvfvKnZNkAVdj77ruTnARDJm14iAjEYTlJl-azZLvoi2ekLvgtsSe1FXLuxgCS--ZqStrLSj-vUM2rLWqiU7iVvGt9XJ2RC8c-UKhby-7fux2RTZ2WNkMtr0hY3fXsopvi7nA_KrmEZ1J4iFJ07ts76fLPvRmWGXbcB3_p_G25Q1pPT">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-6 left-6"><h3 class="text-2xl font-headline font-bold mb-1">Plancha Core</h3><p class="text-primary font-label text-xs uppercase tracking-widest">Resistencia Estática</p></div>
+</div>
+<div class="group relative aspect-video rounded-2xl overflow-hidden kinetic-border cursor-pointer" onclick="openExerciseModal('Flexiones de Brazo', 'Fuerza', '4 series x 12 reps', 'Manos a ancho de hombros, baja pecho controlado.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4')">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgzAh8ItbN794Orn6qgFGgKJfExx-ybDnMHehw7NssFkLYQIUnOaeTkghlGojsYCZyZQ4bo7PFvdpOPVk2eLRG-kUuOfaz_MrH1L0CniNBYnjCxoLnt3hXufG4LdzMDuG5uQlDhhfe1QlIwz8-hHHFEkZPf5XkgExDZ0Xvos7orwYd-WSoMIM7w1P9-uDGobEEHCJraK3VzkNxCq0U4190GcaR-e4JvWLElX5N-HcpXdQOnKTgN14cvnJqH3hpV7RzBfjn-0013Oj8">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-6 left-6"><h3 class="text-2xl font-headline font-bold mb-1">Flexiones</h3><p class="text-primary font-label text-xs uppercase tracking-widest">Empuje Total</p></div>
+</div>
+<div class="group relative aspect-video rounded-2xl overflow-hidden kinetic-border cursor-pointer" onclick="openExerciseModal('Peso Muerto (Bidones)', 'Fuerza', '4 series x 12 reps', 'Espalda neutra, baja flexionando cadera. Siente tensión atrás.', 'https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4')">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ7r51NyG-Fr5j-4kd4XL46vgqsvDepvvD2B4qU47HtHzQ-5z0CX9Z2BfSCsu7j3hvsvO4R1RFpBkJb2YPYfrBqWGAr_h07moQp1NKr_zjR-OJFtFCK3LqbUnWZNhyFyw4KuA5ix1ByyzTlwxhmpo2nOn4DW3iTK0ZTyTLDi8kt8VB54pu23NypKs3ram7I9WzBiuhKkHEe684uGdeNKJQ_GF8X1rVa3kYQ34eE-mu7BkmRwAmk5jRSRdOX3hoYzfdLtrsInvhF2Yz">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-6 left-6"><h3 class="text-2xl font-headline font-bold mb-1">Peso Muerto</h3><p class="text-primary font-label text-xs uppercase tracking-widest">Cadena Posterior</p></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Founders Section -->
+<section class="py-32 bg-surface-container-lowest" id="fundadores">
+<div class="container mx-auto px-8">
+<div class="text-center mb-20">
+<span class="font-label text-primary font-bold tracking-[0.4em] uppercase mb-4 block">Arquitectos de Movimiento</span>
+<h2 class="text-5xl font-headline font-bold tracking-tighter uppercase">Los Fundadores</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+<div class="glass-panel p-10 rounded-3xl kinetic-border text-center hover:bg-surface-container-high transition-all">
+<div class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-primary/20 mb-8 bg-surface-container">
+<img alt="Benjamin Ferrero Damianoff" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX-ZRrLAGQqzReWtTGaOjP5gRjKPdLVQsmu6r0VyUWqjn_OcdPE3G9ok49Bel30458Q-YxkXIABb2AHQPYJ2v6mMC3_IIs76-TnJVdlGrXVGPRmSumCD3O4drHEpV9T5xAALV7He9G36BVKkBueirzergzTO64uMQvQADjiBmkmxBAr7mHHp8WqVfNwRIFc2MhkCcsejZ5Q1B-M9bBADkRrPJgSQLLFIUKhlJCGYWt3JwECWjfwZ6r3sQX3cPj_iLk4O91AJB4TzTO">
+</div>
+<h3 class="text-3xl font-headline font-bold mb-3 text-on-surface">Benjamin Ferrero Damianoff</h3>
+<p class="text-primary font-label uppercase tracking-widest text-xs mb-6 font-bold">Co-Fundador &amp; Director Arquitectónico</p>
+<p class="text-on-surface-variant text-base leading-relaxed">Especializado en crear las rutinas perfectas para cada uno y para cada necesidad</p>
+</div>
+<div class="glass-panel p-10 rounded-3xl kinetic-border text-center hover:bg-surface-container-high transition-all">
+<div class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-primary/20 mb-8 bg-surface-container">
+<img alt="Santiago Nicolas Soria Cantos" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqD2mkTAp1zR-y75XJmdlKDF9AajNxOB6Aw_gbgw2fYte5q-q0MznIfF0PYZUPVBPV1zI9s48PTzT2OUNvmi3LglmmpLRdiLcxcqaVhEcMjPRDvj8t_FT8EyWqVoIlKYVrW5x4h08ILDSGewasnZTu2x10xlroV0bDiiYpiOlw38LPFQ_Uj8ExIoPrVvw2wGL-6y66XSAUW5tEdXqfcoLfHsLpwSxnwFx5dnHm6mMTh46zJNGyshlT8GMSO6-OntT1WuuDxlmq17kT">
+</div>
+<h3 class="text-3xl font-headline font-bold mb-3 text-on-surface">Santiago Nicolas Soria Cantos</h3>
+<p class="text-primary font-label uppercase tracking-widest text-xs mb-6 font-bold">Fundador &amp; Especialista Biomecánico</p>
+<p class="text-on-surface-variant text-base leading-relaxed">Encargado de crear la web y sus funciones pensadas para tu comodidad</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Timer Section -->
+<section class="py-24 bg-primary text-on-primary overflow-hidden relative" id="centro-de-control">
+<div class="absolute inset-0 bg-black/5 pointer-events-none"></div>
+<div class="container mx-auto px-8 relative z-10">
+<div class="flex flex-col items-center">
+<div class="timer-display text-[clamp(6rem,20vw,15rem)] font-bold leading-none mb-12 tracking-tighter" id="main-timer">45:00</div>
+<div class="flex gap-6">
+<button class="bg-on-primary text-primary px-10 py-4 rounded-full font-label font-bold tracking-widest hover:scale-105 transition-all flex items-center gap-3" id="btn-start" onclick="startTimer()">
+<span class="material-symbols-outlined fill-1">play_arrow</span> INICIAR
+                </button>
+<button class="bg-on-primary/20 text-on-primary border border-on-primary/30 px-10 py-4 rounded-full font-label font-bold tracking-widest hover:scale-105 transition-all flex items-center gap-3 hidden" id="btn-pause" onclick="pauseTimer()">
+<span class="material-symbols-outlined">pause</span> PAUSA
+                </button>
+<button class="bg-on-primary/10 text-on-primary border border-on-primary/20 px-10 py-4 rounded-full font-label font-bold tracking-widest hover:scale-105 transition-all flex items-center gap-3" onclick="resetTimer()">
+<span class="material-symbols-outlined">restart_alt</span> REINICIAR
+                </button>
+</div>
+</div>
+</div>
+</section>
+<footer class="py-12 bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="container mx-auto px-8 text-center">
+<p class="text-on-surface-variant text-sm font-label tracking-widest opacity-60">FITHOME © 2026 | ENTRENAR NO ES UN LUJO</p>
+</div>
+</footer>
+<script>
+    // Timer Logic
+    let timeLeft = 45 * 60;
+    let timerId = null;
+
+    function updateTimerDisplay() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        document.getElementById('main-timer').textContent = 
+            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function startTimer() {
+        if (timerId) return;
+        document.getElementById('btn-start').classList.add('hidden');
+        document.getElementById('btn-pause').classList.remove('hidden');
+        timerId = setInterval(() => {
+            if (timeLeft > 0) {
+                timeLeft--;
+                updateTimerDisplay();
+            } else {
+                pauseTimer();
+            }
+        }, 1000);
+    }
+
+    function pauseTimer() {
+        clearInterval(timerId);
+        timerId = null;
+        document.getElementById('btn-start').classList.remove('hidden');
+        document.getElementById('btn-pause').classList.add('hidden');
+    }
+
+    function resetTimer() {
+        pauseTimer();
+        timeLeft = 45 * 60;
+        updateTimerDisplay();
+    }
+
+    // Modal Logic
+    const overlay = document.getElementById('exercise-overlay');
+    const video = document.getElementById('overlay-video');
+    const videoSource = document.getElementById('video-source');
+    const playPauseIcon = document.getElementById('play-pause-icon');
+
+    function openExerciseModal(title, category, metrics, instructions, videoUrl) {
+        document.getElementById('overlay-title').innerText = title;
+        document.getElementById('overlay-category').innerText = category;
+        document.getElementById('overlay-metrics').innerText = metrics;
+        document.getElementById('overlay-instructions').innerText = instructions;
+        
+        videoSource.src = videoUrl;
+        video.load();
+        
+        overlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeOverlay() {
+        overlay.classList.add('hidden');
+        video.pause();
+        document.body.style.overflow = 'auto';
+    }
+
+    function togglePlayPause() {
+        if (video.paused) {
+            video.play();
+            playPauseIcon.textContent = 'pause';
+            document.getElementById('video-overlay-play').classList.add('opacity-0');
+        } else {
+            video.pause();
+            playPauseIcon.textContent = 'play_arrow';
+            document.getElementById('video-overlay-play').classList.remove('opacity-0');
+        }
+    }
+
+    // Smooth scroll for nav links including Logo
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+
+
+</body></html>
